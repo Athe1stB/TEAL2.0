@@ -1,0 +1,61 @@
+<p>
+  The follwing list displays programs that have already synced with the global
+  database and have their metadata added.
+</p>
+<table class="generaltable">
+  <thead>
+    <tr>
+      <th class="header c0 pluginname" scope="col">Program Name</th>
+      <th class="header c1 version" scope="col">Program Code</th>
+      <th class="header c3 settings" colspan="2" scope="col">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#programs}}
+    <tr class="type-local name-local_adminer status-uptodate extension">
+      <td class="pluginname cell c0">
+        <div class="displayname">
+          <a href="{{ program_url }}?id={{ id }}">
+            {{ name }}({{ code }})
+          </a>
+        </div>
+      </td>
+      <td class="version cell c1">
+        <div class="displayname">{{ code }}</div>
+      </td>
+      <td>
+        <div class="displayname">
+          {{ level }}
+        </div>
+      </td>
+    </tr>
+    {{/programs}}
+  </tbody>
+</table>
+<hr />
+The following programs are present in the global database but not in the local instance.
+Click on any of the following to view more information or import it if needed.
+<table class="generaltable">
+  <thead>
+    <tr>
+      <th class="header c0 pluginname" scope="col">Program Name</th>
+      <th class="header c1 version" scope="col">Program Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#non_synced_programs}}
+    <tr class="type-local name-local_adminer status-uptodate extension">
+      <td class="pluginname cell c0">
+        <div class="displayname">
+          <a href="{{ program_url }}?repoName={{ repo_name }}">
+            {{ name }}({{ code }})
+          </a>
+        </div>
+      </td>
+      <td class="version cell c1">
+        <div class="displayname">{{ code }}</div>
+      </td>
+    </tr>
+    {{/non_synced_programs}}
+  </tbody>
+</table>

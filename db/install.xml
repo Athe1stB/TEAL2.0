@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/teal/db" VERSION="20200213" COMMENT="XMLDB file for Folder module" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+
+  <TABLES>
+    <TABLE NAME="teal_course_metadata" COMMENT="Each record is a metadata for one course">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+        <FIELD NAME="name" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="code" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="objective" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="creation_time" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="last_modified_time" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="course_details" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="course_structure" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="moderator" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="prerequisites" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="domain" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="sub_domain" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="skill" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="moodle_course_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" />
+        <FIELD NAME="total_credits" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="level" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="ilos" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="commit" TYPE="text" NOTNULL="false" SEQUENCE="false" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="teal_program_metadata" COMMENT="Each record is a metadata for one program">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+        <FIELD NAME="name" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="code" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="objective" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="courses" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="total_credits" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="level" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="ilos" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="teal_settings" COMMENT="Some trivial settings for teal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+        <FIELD NAME="name" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="value" TYPE="text" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="is_secret" TYPE="binary" NOTNULL="true" SEQUENCE="false" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

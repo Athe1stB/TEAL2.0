@@ -1,0 +1,40 @@
+<p>
+  The follwing list displays courses that have already synced with the global
+  database and have their metadata added.
+</p>
+<table class="generaltable">
+  <thead>
+    <tr>
+      <th class="header c0 pluginname" scope="col">Course Name</th>
+      <th class="header c1 version" scope="col">Course Code</th>
+      <th class="header c2 availability" scope="col">Domain</th>
+      <th class="header c3 settings" colspan="2" scope="col">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#courses}}
+    <tr class="type-local name-local_adminer status-uptodate extension">
+      <td class="pluginname cell c0">
+        <div class="displayname">
+          <a href="{{ course_url }}?id={{ id }}">
+            {{ name }}({{ code }})
+          </a>
+        </div>
+      </td>
+      <td class="version cell c1">
+        <div class="displayname">{{ code }}</div>
+      </td>
+      <td class="uninstall cell c4">
+        <div class="displayname">
+          {{ domain }}
+        </div>
+      </td>
+      <td>
+        <div class="displayname">
+          {{ level }}
+        </div>
+      </td>
+    </tr>
+    {{/courses}}
+  </tbody>
+</table>

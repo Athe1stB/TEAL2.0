@@ -1,0 +1,109 @@
+
+<p>
+  This page contains the general information of a particular course. You can perform various
+  operations on the course here.
+</p>
+<div>
+<table class="generaltable">
+    <tr>
+        <td>
+            <b>Code</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.code}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Domain</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.domain}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Sub Domain</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.sub_domain}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Course Moderator</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{moderator}}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Course Structure</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{course_structure}}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Course Details</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{course_details}}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Created on</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.creation_time}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Last Modified</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.last_modified_time}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Credits</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.total_credits}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Level</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{course.level}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Learning Outcomes</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{learning_outcomes}}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Prerequisites</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{prerequisites}}}</p>
+        </td>
+      </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" href="{{github_url}}">View On Github</a>
+<a class="btn btn-primary" style="margin-left: 5px;" href="{{update_url}}?id={{course.id}}">Update Branch</a>
+<a class="btn btn-primary" style="margin-left: 5px;" href="{{github_url}}">New Version</a>
+</div>

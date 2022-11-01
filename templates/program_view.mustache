@@ -1,0 +1,61 @@
+
+<p>
+  This page contains the general information of a particular program.
+</p>
+<div>
+<table class="generaltable">
+    <tr>
+        <td>
+            <b>Code</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{program.code}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Objective</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{program.objective}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Credits</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{program.total_credits}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Level</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{program.level}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Learning Outcomes</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{learning_outcomes}}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <b>Courses</b>
+        </td>
+        <td class="version cell c1">
+          <p>{{{courses}}}</p>
+        </td>
+      </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" href="{{github_url}}">View On Github</a>
+{{#is_global}}
+<a class="btn btn-primary" href="{{import_url}}">Import</a>
+{{/is_global}}
+</div>
