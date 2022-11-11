@@ -19,7 +19,6 @@ $PAGE->set_title('Update Course');
 $PAGE->set_heading('Update Course');
 $PAGE->requires->js('/local/teal/js/course/create.js');
 
-
 $update_course_form = new UpdateCourseForm($_GET['id'], $update_url);
 
 echo $OUTPUT->header();
@@ -28,6 +27,12 @@ if ($update_course_form->is_cancelled()) {
     redirect($CFG->wwwroot . '/local/teal/dashboard.php', 'Oops course update cancelled!');
 } else if ($form_data = $update_course_form->get_data()) {
     $form_data->id = $_GET['id'];
+
+    // set updation date here
+    date_default_timezone_set("Asia/Calcutta");
+    $date_string = date("h:i:s A, d-M-Y");
+    $form_data->last_modified_time = $date_string;
+
     $course =  Course::by_form_data_with_id($form_data);
     $course->commit_to_local();
     $course->commit_to_global($form_data->commit_message);

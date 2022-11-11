@@ -30,8 +30,24 @@ class UpdateCourseForm extends moodleform
         // Initialize Form
         $form = $this->_form;
 
+        $course_repo_names = CourseHelper::get_course_repo_names();
+        $course_array = array();
+        foreach ($course_repo_names as $course_repo_name) {
+            $course_name = CourseHelper::get_course_name_from_course_repo_name($course_repo_name);
+            $course_array[$course_repo_name] = $course_name;
+        }
+        $options = array(
+            'multiple' => false,
+            'tags' => true
+        );
+        $multiple_options = array(
+            'multiple' => true,
+            'placeholder' => "Select course(s)",
+        );
+        
         $course = Course::by_id($this->course_id);
         $course->name;
+        
         $form->addElement('static', 'name', "Course Name", $course->name);
 
         // Course Objective
@@ -46,6 +62,32 @@ class UpdateCourseForm extends moodleform
 
         $form->addElement('static', 'level', "Level", $course->level);
 
+        // Prerequisite(s) for the course
+        $form->addElement('autocomplete', 'prerequisites', "Prerequisite(s)", $course_array, $multiple_options);
+
+        /****  Course Moderator  ****/ 
+        $form->addElement('static', 'course_moderator_name', "<b>Course Moderator Details</b>", "<hr />");
+        $form->addElement('text', 'moderator_name', 'Moderator Name');
+        $form->addElement('text', 'moderator_email', 'Moderator Email');
+
+        /****  Course Structure  ****/ 
+        $form->addElement('static', 'course_structure_label', "<b>Course Structure</b>", "<hr />");
+        $form->addElement('text', 'lecture', 'Lecture');
+        $form->setDefault('lecture', 0);
+        $form->addElement('text', 'tutorial', 'Tutorial');
+        $form->setDefault('tutorial', 0);
+        $form->addElement('text', 'practical', 'Practical');
+        $form->setDefault('practical', 0);
+        
+        /****  Course Details [core/elective, theory/practical/both, beginner/standard/advanced]  ****/
+        $c_level = array('Beginner', 'Standard', 'Advanced');
+        $c_units = array('Theory', 'Practical', 'Theory and Practical');
+        $c_type = array('Core', 'Elective');
+
+        $form->addElement('static', 'course_details_label', "<b>Course Details</b>", "<hr />");
+        $form->addElement('select', 'c_type', 'Course Type', $c_type);
+        $form->addElement('select', 'c_unit', 'Course Units', $c_units);
+        $form->addElement('select', 'c_level', 'Course Level', $c_level);
 
         /****  Course CAH3 Classification *****/
 

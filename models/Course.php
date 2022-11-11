@@ -38,6 +38,7 @@ class Course
     public $level;
     public $creation_time;
     public $last_modified_time;
+    public $version; // not yet done
     public $course_details;
     public $course_structure;
     public $moderator;
@@ -153,16 +154,25 @@ class Course
     public static function by_form_data_with_id($form_data)
     {
         $course_temp = Course::by_id($form_data->id);
+        // first create course_details , course_structure and moderator array
+        $course_structure_arr = array(($form_data->lecture), $form_data->tutorial, $form_data->practical);
+        
+        $c_level = array('Beginner', 'Standard', 'Advanced');
+        $c_units = array('Theory', 'Practical', 'Theory and Practical');
+        $c_type = array('Core', 'Elective');
+        $course_details_arr = array($c_type[$form_data->c_type], $c_units[$form_data->c_unit], $c_level[$form_data->c_level]);
+        
+        $moderator_arr = array($form_data->moderator_name, $form_data->moderator_email);
 
         $instance = new self(
             $course_temp->name,
             $form_data->objective,
             $course_temp->level,
-            $form_data->creation_time,
+            $course_temp->creation_time,
             $form_data->last_modified_time,
-            $form_data->course_details,
-            $form_data->course_structure,
-            $form_data->moderator,
+            $course_details_arr,
+            $course_structure_arr,
+            $moderator_arr,
             $form_data->prerequisites,
             $form_data->domain,
             $form_data->sub_domain,

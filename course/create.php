@@ -38,6 +38,7 @@ if ($create_course_form->is_cancelled()) {
     );
 } else if ($form_data = $create_course_form->get_data()) {
     // set creation date here
+    date_default_timezone_set("Asia/Calcutta");
     $date_string = date("h:i:s A, d-M-Y");
     $form_data->creation_time = $date_string;
     $form_data->last_modified_time = $date_string;
@@ -55,7 +56,7 @@ if ($create_course_form->is_cancelled()) {
             $form_data->commit_hid
         );
 
-    debug_to_console(array($form_data->lecture, $form_data->tutorial, $form_data->practical));
+    debug_to_console($date_string);
     $course->create_moodle_course();
     $course->commit_to_local();
     $course->commit_to_global("First commit");
